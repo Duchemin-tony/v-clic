@@ -1,0 +1,221 @@
+<!DOCTYPE html> 
+<html lang="fr">
+   <head>
+      <meta charset="utf-8">
+      <meta name="google-site-verification" content="TnM6kdx6iy48lMQag6wggK9ybyqyfF8di6EYOYt0KKo" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="keywords" lang="fr" content="location, vélo, rouen">
+      <meta name="reply-to" content="tony76i@live.fr">
+      <meta name="category" content="location">
+      <meta name="Description" content="Vé-clic site de location de vélo dans la ville de Rouen en Seine-maritime">
+      <meta name="author" lang="fr" content="Tony Duchemin">
+      <meta name="identifier-url" content="http://wwww.ve-clic-rouen.fr">
+      <!-- Meta Open Graph -->
+      <meta property="og:title" content="Vé-Clic location de vélo à Rouen" />
+      <meta property="og:url" content="http://www.ve-clic-rouen.fr/images/1.jpg" />
+      <meta property="og:image" content="http://www.ve-clic-rouen.fr/images/1.jpg" />
+      <meta property="og:description" content="Vé-clic site de location de vélo à Rouen.">
+      <meta property="og:locale" content="fr_FR" />
+      <title>Vé-clic location de vélos</title>
+      <link rel="shortcut icon" href="images/velo_logo_ico.png" type="image/x-icon">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+   </head>
+   <body>
+      <div id="bloc_page">
+
+         <!-- Barre de navigation -->
+         <header id="header_nav">
+            <div id="navbar">
+               <img src="images/velo_logo.png" alt="logo" id="logo">
+               <h1><span id="titre">Vé-Clic</span></h1>
+            </div>
+            <div id="nav">
+               <input type="checkbox" id="menu-checkbox" class="menu-checkbox"/>
+               <label for="menu-checkbox" class="menu-toggle">≡ Menu</label>
+               <ul class="menu">
+                  <li><a href="#bloc_page">Accueil</a></li>
+                  <li><a href="#reservation">Stations</a></li>
+                  <li><a href="#info">Réservation</a></li>
+               </ul>
+            </div>
+         </header>
+
+         <!-- Début du diaporama -->
+         <section id="diaporama">
+            <div id="carousel">
+               <div class="item">
+                  <div class="item__image">
+                     <img src="images/1.jpg" alt="">
+                  </div>
+                  <div class="fig1">
+                     <h2>Bienvenue sur <span class="titre">Vé-Clic</span></h2>
+                     <br>
+                     <p>Location de vélo à Rouen</p>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="item__image">
+                     <img src="images/2.jpg" alt="">
+                  </div>
+                  <div class="fig2">
+                     <p>1. Choisissez votre Station sur la carte ci-dessous</p>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="item__image">
+                     <img src="images/3.jpg" alt="">
+                  </div>
+                  <div class="fig3">
+                     <p>2. Ensuite, cliquez sur "réserver".<br> Remplissez et signer le formulaire qui s'affiche en-dessous de la carte.</p>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="item__image">
+                     <img src="images/4.jpg" alt="">
+                  </div>
+                  <div class="fig4">
+                     <p>3. Enfin, vous avez un délai de 20 mintutes pour récupérer votre vélo</p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Bouton pour séléctionner image du diapo précédente ou suivante -->
+            <div id="selecteur">
+               <label class="next"><i class="fas fa-angle-right" ></i></label>
+               <label class="prev"><i class="fas fa-angle-left" ></i></label>
+            </div>
+
+   			<!-- Bouton Play et Stop -->
+            <div id="barre">
+               <input id="play" type="button" name="play" value="play">
+               <input id="stop" type="button" name="stop" value="stop">
+            </div>
+         </section>
+
+         <!-- Titre de la section de réservation -->
+         <section>
+            <div id="reservation">
+               <h2><i class="fas fa-search"></i>Choisissez votre station</h2>
+            </div>
+
+            <!-- Carte map -->
+            <div id="map_form">
+               <div id="map" class="map"></div>
+               <div id="infoStation">
+
+                  <!-- Cadre informations sur la station sélectionnée -->
+                  <h2>Informations sur la station :</h2>
+                  <ul id="listeInfo">
+                     <li>
+                        Nom: <!-- Nom inséré en Javascript --> 
+                        <span id="nomStation"> 
+                        </span>
+                     </li>
+                     <li>
+                        Etat: <!-- État inséré en Javascript -->
+                        <span id="etatStation">
+                        </span>
+                     </li>
+                     <li>
+                        Vélos disponibles: <!-- Nombre inséré en Javascript -->
+                        <span id="veloDispo">
+                        </span>
+                     </li>
+                     <li>
+                        Points d'attache disponibles: <!-- Nombre inséré en Javascript -->
+                        <span id="attacheDispo">
+                        </span>
+                     </li>
+                  </ul>
+
+                  <!-- Carte streetView -->
+                  <div id="streetView"></div>
+
+                  <!-- Bouton de réservation -->
+                  <p id="bouttonReservation"><button>Réserver</button></p>
+                  <p id="messageErreur" class="message">La réservation est impossible à cette station</p>
+                  <!-- Message d'erreur en cas de réservation impossible -->
+               </div>
+            </div>
+
+            <!-- Cadre signature -->
+            <div id="containerCanvas" >
+                  <p>
+                     Vous étes sur le point de réserver un vélo à la station : 
+                     <strong>
+                        <!-- Nom de la station inséré en Javascript --> 
+                     </strong>
+                  </p>
+                  <p><label>Nom : <input type="text" name="nom" id="nom" ></label></p>
+                  <p><label>Prenom : <input type="text" name="prenom" id="prenom"></label></p>
+                  <canvas id="signature" width="380" height="200" >Votre navigateur ne prend pas en charge Canvas</canvas>
+                  <span id="msgAlert"></span>
+
+                  <!-- Bouton du canvas -->
+                  <div id="boutonCanvas">
+                  	 <!-- Bouton Valider -->
+                     <p><button type="submit" id="boutonValider">Valider</button></p>
+                     <!-- Bouton Effacer -->
+                     <p><button id="boutonEffacer">Effacer</button></p>
+                  </div>
+            </div>
+         </section>
+
+         <footer>
+            <div id="info">
+               <h2><i id="icone_info" class="fas fa-info"></i>Information sur la réservation</h2>
+            </div>
+            <!-- Message affiché lors d'une réservation -->
+            <div id="messageConfirmationLocation" class="message">
+               Votre réservation est bien enregistrer
+            </div>
+            <!-- Message affiché lors de l'annulation d'une réservation -->
+            <div id="annulationReservation" class="message">
+               Réservation annuler
+            </div>
+            <!--- Message de location -->
+            <div id="sectionLocation">
+               <!-- Message affiché quand réservation expiré -->
+               <div id="messageFinLocation">
+                  Votre réservation à expirer !
+               </div>
+               <!-- Message affiché durant une réservation -->
+               <div id="messageLocation">
+                  <p>
+                     Vous venez de réserver 1 vélo à la station : 
+                     <strong id="recapNomStation">
+                     <!-- Nom de la station inséré en Javascript --> 
+                     </strong>
+                     <br>
+                     <!-- Nom et Prénom du client inséré en Javascript -->
+                     <p>
+                     	Au nom de : 
+                     	<span id="infoClient"></span>
+                     	<br>
+                     </p>
+					    <!-- Div du compte à rebours -->
+                     <div id="compteur"></div>
+                  <!-- Bouton pour l'annulation de la réservation -->
+                  <p><button id="annulation">Annuler la réservation</button></p>
+               </div>
+            </div>
+         </footer>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="js/diapo1.js"></script>
+      <script src="js/reservation.js"></script>
+      <script src="js/map.js"></script>
+      <script src="js/station.js"></script>
+      <script src="js/markerClusterer.js"></script>
+      <script src="js/canvas.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlHteuasFhD3H7QKdmJkY_b2JDjmerewk&callback=initMap"
+         async defer></script>
+
+
+
+   </body>
+</html>
